@@ -1,16 +1,20 @@
+import heapq
+
 scoville = [1, 2, 3, 9, 10, 12]
+heapq.heapify(scoville)
 K = 7
 cnt = 0
-scoville.sort()
-while(scoville[0] < K):
-    if len(scoville) == 1 and scoville[0] < K:
-        print(-1)
+while(len(scoville) >= 2):
+    a = heapq.heappop(scoville)
+    if a >= K:
+        print(cnt)
         exit(0)
-    a = scoville.pop(0)
-    b = scoville.pop(0)
-    scoville.append(a+b*2)
-    scoville.sort()
+    
+    b = heapq.heappop(scoville)
+    heapq.heappush(scoville, a+b*2)
     cnt += 1
-    
-    
-print(cnt)
+
+if scoville[0] >= K:
+    print(cnt)
+else:
+    print(-1)
