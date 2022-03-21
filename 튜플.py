@@ -1,3 +1,5 @@
+### eval() 함수를 사용하면 수식이 그대로 나옴
+
 s = "{{4,2,3},{3},{2,3,4,1},{2,3}}"
 answer = []
 tmp = []
@@ -15,16 +17,8 @@ while index < len(s)-1:
             answer.append(tmp)
             tmp = []
     index += 1
-# for i in s:
-#     if i != '{' and i != '}' and i != ',':
-#         tmp.append(int(i))
-#     if i == '}':
-#         if len(tmp) != 0:
-#             answer.append(tmp)
-#             tmp = []
             
 answer.sort(key = lambda x : len(x))
-print(answer)
 arr = []
 while len(answer) > 0:
     num = answer[0][0]
