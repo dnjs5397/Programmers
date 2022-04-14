@@ -14,4 +14,3 @@ for i in ha:
     answer *= (ha[i]+1)
     
 print(answer-1)
-
